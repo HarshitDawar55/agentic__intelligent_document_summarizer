@@ -1,0 +1,7 @@
+fastapi
+boto3
+langchain
+uvicorn
+langchain-community
+langchain-aws
+python-multipart
