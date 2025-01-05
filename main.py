@@ -67,7 +67,7 @@ async def process_document(file: UploadFile = File(...)):
         # Clean up local file
         os.remove(file_path)
 
-        return JSONResponse(content={"summary": result}, status_code=200)
+        return JSONResponse(content={"summary": result["output"]}, status_code=200)
     except Exception as e:
         if os.path.exists(file_path):
             os.remove(file_path)

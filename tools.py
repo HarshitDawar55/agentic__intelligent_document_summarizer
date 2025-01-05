@@ -95,7 +95,6 @@ def extract_text_from_s3(prompt: str) -> str:
                 break
         if status["JobStatus"] == "SUCCEEDED":
             extracted_text = []
-            logging.info(f"Extracted Blocks {status['Blocks']}")
             for block in status["Blocks"]:
                 if block["BlockType"] == "LINE":
                     extracted_text.append(block["Text"])
@@ -115,7 +114,7 @@ def summarize_text_with_bedrock(text: str) -> str:
             f"Into the summarize_text_with_bedrock function with input: {text}"
         )
         body_request = {
-            "prompt": f"Summarize the following text: {text}",
+            "prompt": f"As an expert researcher and technical expert, please summarize the following text: {text}",
             "temperature": 0.5,
         }
 
